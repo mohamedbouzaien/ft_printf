@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2019/01/03 17:25:30 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/01/09 02:52:02 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+#include "libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    
+	if (lst && del)
+	{
+		(del)(lst->content);
+		free(lst);
+	}
 }

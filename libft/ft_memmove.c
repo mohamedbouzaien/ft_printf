@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2018/12/04 15:44:02 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/01/09 02:23:11 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-    
+	char	*d;
+	char	*s;
+	size_t	i;
+
+	if (!dst && !src)
+		return (NULL);
+	i = 0;
+	d = (char *)dst;
+	s = (char *)src;
+	if (d < s)
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	else
+		while (n-- > 0)
+			d[n] = s[n];
+	return (dst);
 }

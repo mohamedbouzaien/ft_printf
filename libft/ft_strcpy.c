@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2018/12/05 15:45:25 by mbouzaie          #+#    #+#             */
+/*   Updated: 2019/12/15 23:58:24 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+char	*ft_strcpy(char *dst, const char *src)
 {
-    
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

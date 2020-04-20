@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2018/12/14 19:25:09 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/01/05 20:33:27 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+#include "libft.h"
+
+void	*ft_memalloc(size_t size)
 {
-    
+	void	*alloc;
+
+	if (!(alloc = malloc(size)))
+		return (NULL);
+	return (ft_memset(alloc, 0, size));
 }

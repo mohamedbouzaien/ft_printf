@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2018/12/10 17:18:59 by mbouzaie          #+#    #+#             */
+/*   Updated: 2019/11/11 14:50:42 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+#include "libft.h"
+
+int		ft_tolower(int c)
 {
-    
+	if (ft_isupper(c))
+		return (c + 32);
+	return (c);
 }

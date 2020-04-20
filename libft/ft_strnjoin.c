@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/20 15:59:14 by mbouzaie         ###   ########.fr       */
+/*   Created: 2020/01/09 00:01:23 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/01/09 00:29:04 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf(const char *format, ...)
+#include "libft.h"
+
+char			*ft_strnjoin(const char *s1, const char *s2, size_t len)
 {
-    
+	char	*s;
+	char	*ret;
+
+	if (!(s = ft_strnew(ft_strlen(s1) + len)))
+		return (NULL);
+	ret = s;
+	while (s1 && *s1)
+		*s++ = *s1++;
+	while (*s2 && s2 && len--)
+		*s++ = *s2++;
+	return (ret);
 }
