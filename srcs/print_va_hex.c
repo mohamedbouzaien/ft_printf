@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_va_nbr.c                                     :+:      :+:    :+:   */
+/*   print_va_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 02:24:09 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/03 04:33:08 by mbouzaie         ###   ########.fr       */
+/*   Created: 2020/05/03 02:26:44 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/05/05 05:31:33 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-void	add_precision(char **src, t_flag flag)
+
+void	add_precisiona(char **src, t_flag flag)
 {
 	int		len;
 	char	*addedzeros;
@@ -47,40 +48,56 @@ void	add_precision(char **src, t_flag flag)
 		free(added);
 	}
 }
-int		print_va_nbr(va_list *ap, t_flag flag)
-{
-	int 	n;
-	int		len;
-	char	*src;
-	char	*added;
 
-	n = 0;
-	n = va_arg(*ap, int);
-	src = ft_itoa(n);
-	add_precision(&src,flag);
+int		print_va_hex(va_list *ap, t_flag flag)
+{
+	int			len;
+    char        *str;
+	char		*hex;
+	char		*added;
+    uintmax_t	l;
+
+	l = va_arg(*ap, long long);
+    flag.widthenabled = 1;
+	str = ft_uitoa(l,16);
+	if (flag.type == 'p')
+	{
+		hex = ft_strnew(3);
+		hex[0] = '0';
+		hex[1] = 'x'; 
+		if (l == 0 && flag.precisionenabled)
+			*str = 0;
+		hex = ft_strnjoin(hex, str, ft_strlen(str));
+		free(str);
+		str = hex;
+	}
+	else
+		add_precisiona(&str,flag);
+	if (flag.type == 'X')
+		str = ft_strupr(str);
+	len = ft_strlen(str);
 	if (flag.width < 0)
 		flag.width = -flag.width;
-	len = ft_strlen(src);       
 	if (flag.widthenabled && flag.width - len > 0)
 	{
 		if (flag.zeroenabled && flag.justify == 0 && (flag.precision < 0 || !flag.precisionenabled))
 		{
 			flag.precisionenabled = 1;
 			flag.precision = flag.width;
-			if (src[0] == '-')
+			if (str[0] == '-')
 				flag.precision--;
-			add_precision(&src, flag);
+			add_precisiona(&str, flag);
 		}
 		else
 		{
 			added = ft_strnew(flag.width - len);
 			ft_memset(added, ' ', flag.width - len);
 			if (flag.justify == 0)
-				src = ft_strnjoin(added, src, len);
+				str = ft_strnjoin(added, str, len);
 			else
-				src = ft_strnjoin(src, added, flag.width - len);
+				str = ft_strnjoin(str, added, flag.width - len);
 		}
 	}
-	ft_putstr_fd(src, 1);
-	return (ft_strlen(src));
+	ft_putstr_fd(str, 1);
+	return(ft_strlen(str));
 }

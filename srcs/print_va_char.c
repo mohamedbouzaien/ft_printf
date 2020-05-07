@@ -6,18 +6,47 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 02:23:18 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/26 17:22:19 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/02 20:12:10 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+int		print_with_width(t_flag flag, char c)
+{
+	char	*addedspaces;
+
+	addedspaces = ft_strnew(flag.width - 1);
+	ft_memset(addedspaces, ' ', flag.width - 1);
+	if (flag.justify == 0)
+	{
+		ft_putstr_fd(addedspaces, 1);
+		ft_putchar_fd(c, 1);
+	}
+	else
+	{
+		ft_putchar_fd(c, 1);
+		ft_putstr_fd(addedspaces, 1);
+	}
+	return (ft_strlen(addedspaces));
+}
+
 int		print_va_char(va_list *ap, t_flag flag)
 {
-	char c;
+	int		len;
+	char	c;
 
-	flag.widthenabled = 0;
-	c = va_arg(*ap, int);
-	ft_putchar_fd(c, 1);
-	return (1);
+	c = (char)va_arg(*ap, void *);
+	if (!c)
+		c = 0;
+	if (flag.width < 0)
+		flag.width = -flag.width;
+	len = 1;
+	if (flag.widthenabled && flag.width - len > 0)
+	{
+		len += print_with_width(flag, c);
+	}
+	else
+		ft_putchar_fd(c, 1);
+	return (len);
 }

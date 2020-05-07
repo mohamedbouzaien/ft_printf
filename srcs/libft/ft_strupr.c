@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_t_flag.c                                      :+:      :+:    :+:   */
+/*   ft_strupr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 16:58:20 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/29 02:02:20 by mbouzaie         ###   ########.fr       */
+/*   Created: 2020/05/04 22:20:21 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/05/04 22:29:12 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-void	init_t_flag(t_flag *flag)
+char	*ft_strupr(char *str)
 {
-	flag->justify = 0;
-	flag->width = 0;
-	flag->precision = 0;
-	flag->widthenabled = 0;
-	flag->precisionenabled = 0;
-	flag->zeroenabled = 0;
+	size_t	i;
+
+	i = 0;
+
+	while (str[i])
+	{
+		if (ft_islower(str[i]))
+			str[i] = ft_toupper(str[i]);
+		i++;
+	}
+	return(str);
 }

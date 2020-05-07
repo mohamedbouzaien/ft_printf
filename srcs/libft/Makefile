@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 15:10:22 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/04/20 23:53:11 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/05 05:25:28 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC = 	ft_memset.c \
 		ft_tolower.c \
 		ft_isspace.c \
 		ft_isblank.c \
+		ft_strupr.c \
 		ft_strdup.c \
 		ft_calloc.c \
 		ft_substr.c \
@@ -68,6 +69,7 @@ SRC = 	ft_memset.c \
 		ft_strnjoin.c \
 		ft_chrloc.c  \
 		ft_memdel.c \
+		ft_uitoa.c \
 
 SRC_B =	ft_lstnew.c \
 		ft_lstadd_front.c \

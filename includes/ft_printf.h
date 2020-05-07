@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 16:30:39 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/04/26 15:58:39 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/03 03:58:19 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef	struct		s_flag
 	char			type;
 	int				width;
 	int				precision;
+	size_t			zeroenabled;
 	size_t			widthenabled;
 	size_t			precisionenabled;
 }					t_flag;
@@ -30,6 +31,7 @@ int					ft_printf(const char *format, ...);
 int					print_va_char(va_list *ap, t_flag flag);
 int					print_va_nbr(va_list *ap, t_flag flag);
 int					print_va_str(va_list *ap, t_flag flag);
+int					print_va_hex(va_list *ap, t_flag flag);
 void				handle_percent(const char *format, int *pos, int *psize, \
 									va_list *ap);
 void				init_t_flag(t_flag *flag);
