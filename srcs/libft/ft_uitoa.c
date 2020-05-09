@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 02:47:24 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/03 03:43:30 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:37:12 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static size_t		udigit_count(uintmax_t n, unsigned int base)
 	return (i);
 }
 
-char   				*ft_uitoa(uintmax_t n, unsigned int base)
+char				*ft_uitoa(uintmax_t n, unsigned int base)
 {
 	char	*str;
 	char	dig[16];
 	size_t	i;
 
-	ft_strcpy(dig,"0123456789abcdef");
+	ft_strcpy(dig, "0123456789abcdef");
 	i = udigit_count(n, base);
 	if (!(str = ft_strnew(i)))
 		return (NULL);
@@ -43,6 +43,5 @@ char   				*ft_uitoa(uintmax_t n, unsigned int base)
 		i--;
 		n /= base;
 	}
-	return(str);
-	
+	return (str);
 }

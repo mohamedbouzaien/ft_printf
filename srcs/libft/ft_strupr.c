@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:20:21 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/04 22:29:12 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:38:29 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ char	*ft_strupr(char *str)
 	size_t	i;
 
 	i = 0;
-
 	while (str[i])
 	{
 		if (ft_islower(str[i]))
 			str[i] = ft_toupper(str[i]);
 		i++;
 	}
-	return(str);
+	return (str);
 }

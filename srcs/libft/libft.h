@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:55:29 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/05 05:25:59 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:39:21 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 char				*ft_strnjoin(const char *s1, const char *s2, size_t len);
 int					ft_chrloc(char *str, int ch);
-char   				*ft_uitoa(uintmax_t n, unsigned int base);
+char				*ft_uitoa(uintmax_t n, unsigned int base);
 #endif
