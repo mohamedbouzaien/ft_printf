@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 16:31:41 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/16 01:13:28 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:54:48 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

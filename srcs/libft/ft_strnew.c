@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 20:02:49 by mbouzaie          #+#    #+#             */
-/*   Updated: 2019/12/15 23:58:03 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:55:47 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strnew(size_t size)
 {

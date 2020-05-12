@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 22:42:53 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/09 00:36:18 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:53:08 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 20:27:13 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/17 14:23:42 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:52:30 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 int		ft_intlength(int n)
 {

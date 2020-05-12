@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 15:10:22 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/05 05:25:28 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/12 19:03:35 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = gcc
 
 NAME = libft.a
 
-HEADER = libft.h
+HEADER = includes/
 
 FLAGS = -Wall -Wextra -Werror -g
 
-OPTION = -c -I $(HEADER)
+OPTION = -I $(HEADER) -c -o
 
 SRC = 	ft_memset.c \
 		ft_bzero.c \

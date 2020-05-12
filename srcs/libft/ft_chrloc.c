@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:03:44 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/09 00:37:20 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:51:47 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 int				ft_chrloc(char *str, int ch)
 {

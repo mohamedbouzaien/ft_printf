@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:59:46 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/17 13:49:23 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:54:40 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static int		ft_count_word(const char *s, char c)
 {

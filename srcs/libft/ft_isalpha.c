@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:45:12 by mbouzaie          #+#    #+#             */
-/*   Updated: 2019/11/11 14:45:21 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:52:05 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 int		ft_isalpha(int c)
 {

@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 00:01:23 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/09 00:29:04 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:55:55 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char			*ft_strnjoin(const char *s1, const char *s2, size_t len)
 {

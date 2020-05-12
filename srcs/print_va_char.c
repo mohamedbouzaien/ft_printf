@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 02:23:18 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/02 20:12:10 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:14:31 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		print_va_char(va_list *ap, t_flag flag)
 	int		len;
 	char	c;
 
-	c = (char)va_arg(*ap, void *);
+	c = va_arg(*ap, int);
 	if (!c)
 		c = 0;
 	if (flag.width < 0)

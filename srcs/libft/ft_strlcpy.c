@@ -6,11 +6,11 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:03:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/01/15 23:14:40 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/12 18:55:22 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 {
