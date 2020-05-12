@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 15:10:22 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/12 19:03:35 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/12 19:12:27 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HEADER = includes/
 
 FLAGS = -Wall -Wextra -Werror -g
 
-OPTION = -I $(HEADER) -c -o
+OPTION = -I $(HEADER) -c
 
 SRC = 	ft_memset.c \
 		ft_bzero.c \

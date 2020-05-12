@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/22 04:54:56 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/09 17:54:27 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/12 19:33:18 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT_A =	libft.a
 COMP =		gcc -Wall -Werror -Wextra -g $(PRINTF_H) $(LIBFT_H) -c -o
 
 PRINTF_H =	-I includes/
-LIBFT_H =	-I $(LIB_DIR)
+LIBFT_H =	-I $(LIB_DIR)/includes/
 
 OBJ_DIR =	obj/
 SRC_DIR =	srcs/
