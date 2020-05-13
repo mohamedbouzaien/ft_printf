@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/04 03:34:38 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/13 03:13:42 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		find(char *tab, char element)
 	return (-1);
 }
 
-void	fill_va_fncts(int (*print_va_fncts[6])(va_list *, t_flag flag))
+void	fill_va_fncts(int (*print_va_fncts[7])(va_list *, t_flag flag))
 {
 	print_va_fncts[0] = print_va_str;
 	print_va_fncts[1] = print_va_char;
@@ -34,17 +34,18 @@ void	fill_va_fncts(int (*print_va_fncts[6])(va_list *, t_flag flag))
 	print_va_fncts[3] = print_va_hex;
 	print_va_fncts[4] = print_va_hex;
 	print_va_fncts[5] = print_va_hex;
+	print_va_fncts[6] = print_va_udec;
 }
 
 void	handle_percent(const char *format, int *pos, int *psize, va_list *ap)
 {
 	int		tmp;
-	int		(*print_va_fncts[6])(va_list *, t_flag flag);
+	int		(*print_va_fncts[7])(va_list *, t_flag flag);
 	char	*tab;
 	t_flag	flag;
 
 	fill_va_fncts(print_va_fncts);
-	tab = (char[7]) {'s', 'c', 'd', 'p', 'x', 'X', 0};
+	tab = (char[8]) {'s', 'c', 'd', 'p', 'x', 'X', 'u', 0};
 	*psize += *pos;
 	flag = fill_flag_data(format, pos, ap);
 	*psize -= *pos;

@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 16:30:39 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/12 18:20:32 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/13 03:09:27 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int					print_va_char(va_list *ap, t_flag flag);
 int					print_va_nbr(va_list *ap, t_flag flag);
 int					print_va_str(va_list *ap, t_flag flag);
 int					print_va_hex(va_list *ap, t_flag flag);
+int					print_va_udec(va_list *ap, t_flag flag);
 void				handle_percent(const char *format, int *pos, int *psize, \
 									va_list *ap);
 void				init_t_flag(t_flag *flag);
