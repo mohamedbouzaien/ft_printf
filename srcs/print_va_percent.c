@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_va_char.c                                    :+:      :+:    :+:   */
+/*   print_va_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 02:23:18 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 19:54:44 by mbouzaie         ###   ########.fr       */
+/*   Created: 2020/05/16 19:31:34 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/05/16 20:24:20 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_va_char(va_list *ap, t_flag flag)
+int		print_va_percent(va_list *ap, t_flag flag)
 {
-	int		len;
-	char	c;
+	int	len;
 
-	c = va_arg(*ap, int);
-	if (!c)
-		c = 0;
+	(void)ap;
 	if (flag.width < 0)
 		flag.width = -flag.width;
 	len = 1;
 	if (flag.widthenabled && flag.width - len > 0)
 	{
-		len += format_width_char(flag, c);
+		len += format_width_char(flag, '%');
 	}
 	else
-		ft_putchar_fd(c, 1);
+		ft_putchar_fd('%', 1);
 	return (len);
 }

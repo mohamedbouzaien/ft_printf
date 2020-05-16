@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_va_char.c                                    :+:      :+:    :+:   */
+/*   format_width_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 02:23:18 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 19:54:44 by mbouzaie         ###   ########.fr       */
+/*   Created: 2020/05/16 19:51:47 by mbouzaie          #+#    #+#             */
+/*   Updated: 2020/05/16 20:15:49 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_va_char(va_list *ap, t_flag flag)
+int		format_width_char(t_flag flag, const char c)
 {
-	int		len;
-	char	c;
+	char	*addedspaces;
 
-	c = va_arg(*ap, int);
-	if (!c)
-		c = 0;
-	if (flag.width < 0)
-		flag.width = -flag.width;
-	len = 1;
-	if (flag.widthenabled && flag.width - len > 0)
+	addedspaces = ft_strnew(flag.width - 1);
+	ft_memset(addedspaces, ' ', flag.width - 1);
+	if (flag.justify == 0)
 	{
-		len += format_width_char(flag, c);
+		ft_putstr_fd(addedspaces, 1);
+		ft_putchar_fd(c, 1);
 	}
 	else
+	{
 		ft_putchar_fd(c, 1);
-	return (len);
+		ft_putstr_fd(addedspaces, 1);
+	}
+	return (ft_strlen(addedspaces));
 }

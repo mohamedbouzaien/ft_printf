@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/22 04:54:56 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/13 03:10:05 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/16 20:21:49 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,13 @@ SRC =		ft_printf.c \
 			print_va_str.c \
 			print_va_hex.c \
 			print_va_udec.c \
+			print_va_percent.c \
 			init_t_flag.c \
 			fill_flag_data.c \
 			handle_percent.c \
 			format_precision_dec.c \
 			format_width_dec.c \
+			format_width_char.c \
 
 CFIND =		$(SRC:%=$(SRC_DIR)%)
 
