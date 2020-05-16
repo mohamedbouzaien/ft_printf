@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 20:19:12 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/16 20:47:13 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 	print_va_fncts[5] = print_va_hex;
 	print_va_fncts[6] = print_va_udec;
 	print_va_fncts[7] = print_va_nbr;
-	print_va_fncts[7] = print_va_percent;
+	print_va_fncts[8] = print_va_percent;
 }
 
 void	handle_percent(const char *format, int *pos, int *psize, va_list *ap)
