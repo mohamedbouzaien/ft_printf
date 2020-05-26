@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 20:47:13 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/24 23:26:42 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,24 @@ void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 	print_va_fncts[8] = print_va_percent;
 }
 
-void	handle_percent(const char *format, int *pos, int *psize, va_list *ap)
+int		handle_flag(const char *format, int *pos, va_list *ap)
 {
 	int		tmp;
+	int		fsize;
 	int		(*print_va_fncts[9])(va_list *, t_flag flag);
 	char	*tab;
 	t_flag	flag;
 
 	fill_va_fncts(print_va_fncts);
+	fsize = 0;
 	tab = (char[10]) {'s', 'c', 'd', 'p', 'x', 'X', 'u', 'i', '%', 0};
-	*psize += *pos;
+	fsize += *pos;
 	flag = fill_flag_data(format, pos, ap);
-	*psize -= *pos;
+	fsize -= *pos;
 	tmp = find(tab, format[*pos]);
 	if (tmp != -1)
-		*psize += (*print_va_fncts[tmp])(ap, flag) - 2;
+		return ((*print_va_fncts[tmp])(ap, flag));
+	else
+		return (-1);
+	
 }

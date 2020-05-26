@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 19:31:34 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 20:24:20 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/24 22:01:39 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int		print_va_percent(va_list *ap, t_flag flag)
 	if (flag.width < 0)
 		flag.width = -flag.width;
 	len = 1;
-	if (flag.widthenabled && flag.width - len > 0)
+	/* if (flag.widthenabled && flag.width - len > 0)
 	{
 		len += format_width_char(flag, '%');
 	}
-	else
+	else*/
 		ft_putchar_fd('%', 1);
 	return (len);
 }

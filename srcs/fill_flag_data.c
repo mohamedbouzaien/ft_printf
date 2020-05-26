@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 04:23:55 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/04 21:49:36 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/25 00:16:05 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ t_flag	fill_flag_data(const char *str, int *pos, va_list *ap)
 	{
 		new.zeroenabled = 1;
 		(*pos)++;
+		new.justify = 0;
 	}
 	if (str[*pos] == '*')
 	{
@@ -80,7 +81,9 @@ t_flag	fill_flag_data(const char *str, int *pos, va_list *ap)
 		new.width = capture_int_str(str, pos, &(new.widthenabled));
 	if (str[*pos] == '.')
 		handle_precision(str, pos, ap, &new);
-	if (ft_isalpha(str[*pos]))
+	if (ft_isalpha(str[*pos]) || str[*pos] == '%')
 		new.type = str[*pos];
+	else
+		new.type = 0;
 	return (new);
 }

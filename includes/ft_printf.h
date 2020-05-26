@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 16:30:39 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/16 20:19:49 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/24 22:57:57 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int					print_va_str(va_list *ap, t_flag flag);
 int					print_va_hex(va_list *ap, t_flag flag);
 int					print_va_udec(va_list *ap, t_flag flag);
 int					print_va_percent(va_list *ap, t_flag flag);
-void				handle_percent(const char *format, int *pos, int *psize, \
-									va_list *ap);
+int					handle_flag(const char *format, int *pos, va_list *ap);
 void				init_t_flag(t_flag *flag);
 void				format_precision_dec(char **str, t_flag flag);
 void				format_width_dec(t_flag flag, char **str, int len);
