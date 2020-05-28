@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_precision_dec.c                             :+:      :+:    :+:   */
+/*   format_precision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 17:22:08 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/09 16:24:46 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 20:10:11 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static	void	format_zeroes(t_flag flag, char **str, char **buffer, int len)
 {
 	char	*addedzeros;
+	char	*pointerclean;
 
 	addedzeros = ft_strnew(flag.precision - len);
 	ft_memset(addedzeros, '0', flag.precision - len);
@@ -25,11 +26,15 @@ static	void	format_zeroes(t_flag flag, char **str, char **buffer, int len)
 		free(*buffer);
 	}
 	else
+	{
+		pointerclean = *str;
 		*str = ft_strnjoin(addedzeros, *str, len);
+		free(pointerclean);
+	}
 	free(addedzeros);
 }
 
-void			format_precision_dec(char **str, t_flag flag)
+void			format_precision(char **str, t_flag flag)
 {
 	int		len;
 	char	*added;

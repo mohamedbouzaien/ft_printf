@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_percent.c                                   :+:      :+:    :+:   */
+/*   handle_flag.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/24 23:26:42 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 19:07:40 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,16 @@ void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 int		handle_flag(const char *format, int *pos, va_list *ap)
 {
 	int		tmp;
-	int		fsize;
 	int		(*print_va_fncts[9])(va_list *, t_flag flag);
 	char	*tab;
 	t_flag	flag;
 
 	fill_va_fncts(print_va_fncts);
-	fsize = 0;
 	tab = (char[10]) {'s', 'c', 'd', 'p', 'x', 'X', 'u', 'i', '%', 0};
-	fsize += *pos;
 	flag = fill_flag_data(format, pos, ap);
-	fsize -= *pos;
 	tmp = find(tab, format[*pos]);
 	if (tmp != -1)
 		return ((*print_va_fncts[tmp])(ap, flag));
 	else
 		return (-1);
-	
 }

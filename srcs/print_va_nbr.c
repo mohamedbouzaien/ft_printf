@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 02:24:09 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/09 17:52:36 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 20:15:38 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		print_va_nbr(va_list *ap, t_flag flag)
 	n = 0;
 	n = va_arg(*ap, int);
 	str = ft_itoa(n);
-	format_precision_dec(&str, flag);
+	format_precision(&str, flag);
 	if (flag.width < 0)
 		flag.width = -flag.width;
 	len = ft_strlen(str);
 	if (flag.widthenabled && flag.width - len > 0)
-		format_width_dec(flag, &str, len);
+		len = format_width_dec(flag, &str, len);
 	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (len);
 }

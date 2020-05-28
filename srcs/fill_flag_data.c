@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 04:23:55 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/25 00:16:05 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 15:27:32 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void	handle_precision(const char *str, int *pos, va_list *ap, t_flag *flag)
 
 t_flag	fill_flag_data(const char *str, int *pos, va_list *ap)
 {
-	t_flag	new;
+	t_flag		new;
+	const char	*params = "-0";
 
+	
 	init_t_flag(&new);
-	if (str[*pos] == '-')
+	while (str[(*pos)++] && ft_strchr(params, str[*pos]))
 	{
-		new.justify = 1;
-		(*pos)++;
-	}
-	else if (str[*pos] == '0')
-	{
-		new.zeroenabled = 1;
-		(*pos)++;
-		new.justify = 0;
+		if (str[*pos] == '-')
+			new.justify = 1;
+		else if (str[*pos] == '0' && new.justify != 1)
+			new.zeroenabled = 1;
+		else
+			break;
 	}
 	if (str[*pos] == '*')
 	{

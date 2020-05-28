@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/24 23:36:26 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:14:12 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 int		ft_printf(const char *format, ...)
 {
-	int		i;
-	int		j;
+	int		pos;
+	int		flagssize;
 	int		handlersize;
 	int		lastpos;
 	va_list	ap;
 
 	va_start(ap, format);
-	i = 0;
-	j = 0;
+	pos = 0;
+	flagssize = 0;
 	handlersize = 0;
-	while (format[i])
+	while (format[pos])
 	{
-		if (i != 0 && format[i - 1] == '%')
+		if (format[pos] == '%')
 		{
-			lastpos = i;
-			handlersize = handle_flag(format, &i, &ap);
+			lastpos = pos;
+			handlersize = handle_flag(format, &pos, &ap);
 			if (handlersize == -1)
 				return (-1);
 			else
-				j += handlersize - (i - lastpos) - 2;
+				flagssize += handlersize - (pos - lastpos) - 1;
 		}
-		else if (format[i] != '%')
+		else if (format[pos] != '%')
 		{
-			ft_putchar_fd(format[i], 1);
+			ft_putchar_fd(format[pos], 1);
 		}
-		i++;
+		pos++;
 	}
-	return (i + j);
+	return (pos + flagssize);
 }

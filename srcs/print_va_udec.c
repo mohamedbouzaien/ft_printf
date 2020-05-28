@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 03:04:48 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/13 03:08:43 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 20:15:14 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int				print_va_udec(va_list *ap, t_flag flag)
 
 	l = va_arg(*ap, long long);
 	str = ft_uitoa(l, 10);
-	format_precision_dec(&str, flag);
+	format_precision(&str, flag);
 	len = ft_strlen(str);
 	if (flag.width < 0)
 		flag.width = -flag.width;
 	if (flag.widthenabled && flag.width - len > 0)
-		format_width_dec(flag, &str, len);
+		len = format_width_dec(flag, &str, len);
 	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (len);
 }

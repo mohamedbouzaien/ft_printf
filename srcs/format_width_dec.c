@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 17:37:37 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/09 17:37:49 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/28 20:14:18 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	format_width_dec(t_flag flag, char **str, int len)
+int		format_width_dec(t_flag flag, char **str, int len)
 {
 	char	*added;
 
@@ -23,7 +23,7 @@ void	format_width_dec(t_flag flag, char **str, int len)
 		flag.precision = flag.width;
 		if (*str[0] == '-')
 			flag.precision--;
-		format_precision_dec(str, flag);
+		format_precision(str, flag);
 	}
 	else
 	{
@@ -34,4 +34,5 @@ void	format_width_dec(t_flag flag, char **str, int len)
 		else
 			*str = ft_strnjoin(*str, added, flag.width - len);
 	}
+	return (flag.width);
 }
