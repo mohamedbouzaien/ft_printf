@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 00:10:04 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/12 18:54:34 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/29 15:08:23 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	int i;
+	int len;
 
-	i = 0;
 	if (s)
-		while (s[i])
-		{
-			ft_putchar_fd(s[i], fd);
-			i++;
-		}
+	{
+		len = ft_strlen(s);
+		write(fd, s, len);
+	}
 }

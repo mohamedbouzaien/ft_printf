@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 04:23:55 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 15:27:32 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/29 15:54:22 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int		capture_int_str(const char *str, int *pos, size_t *enablepart)
 {
-	int i;
-	int num;
+	int 	i;
+	int 	num;
+	char	*numinstr;
 
 	i = 0;
 	num = 0;
@@ -26,7 +27,9 @@ int		capture_int_str(const char *str, int *pos, size_t *enablepart)
 		*enablepart = 1;
 		while (ft_isdigit(str[*pos + i]))
 			i++;
-		num = atoi(ft_substr(str, *pos, i));
+		numinstr = ft_substr(str, *pos, i);
+		num = atoi(numinstr);
+		free(numinstr);
 		*pos += i;
 	}
 	return (num);
@@ -69,7 +72,10 @@ t_flag	fill_flag_data(const char *str, int *pos, va_list *ap)
 		else if (str[*pos] == '0' && new.justify != 1)
 			new.zeroenabled = 1;
 		else
+		{
+			(*pos)++;
 			break;
+		}
 	}
 	if (str[*pos] == '*')
 	{

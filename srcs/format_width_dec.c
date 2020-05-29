@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 17:37:37 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 20:14:18 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/29 15:18:33 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		format_width_dec(t_flag flag, char **str, int len)
 {
 	char	*added;
+	char	*pointerclean;
 
 	if (flag.zeroenabled && flag.justify == 0 && (flag.precision < 0 \
 		|| !flag.precisionenabled))
@@ -29,10 +30,13 @@ int		format_width_dec(t_flag flag, char **str, int len)
 	{
 		added = ft_strnew(flag.width - len);
 		ft_memset(added, ' ', flag.width - len);
+		pointerclean = *str;
 		if (flag.justify == 0)
 			*str = ft_strnjoin(added, *str, len);
 		else
 			*str = ft_strnjoin(*str, added, flag.width - len);
+		free(pointerclean);
+		free(added);
 	}
 	return (flag.width);
 }

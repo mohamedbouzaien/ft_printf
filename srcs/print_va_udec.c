@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 03:04:48 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 20:15:14 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/29 15:05:31 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int				print_va_udec(va_list *ap, t_flag flag)
 	if (flag.widthenabled && flag.width - len > 0)
 		len = format_width_dec(flag, &str, len);
 	ft_putstr_fd(str, 1);
+	free(str);
 	return (len);
 }
