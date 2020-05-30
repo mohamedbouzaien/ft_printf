@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 02:24:09 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/29 15:24:41 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/30 21:55:35 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		print_va_nbr(va_list *ap, t_flag flag)
+int		print_va_dec(va_list *ap, t_flag flag)
 {
 	int		n;
 	int		len;

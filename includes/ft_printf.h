@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 16:30:39 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 20:14:30 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/30 21:55:46 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef	struct		s_flag
 
 int					ft_printf(const char *format, ...);
 int					print_va_char(va_list *ap, t_flag flag);
-int					print_va_nbr(va_list *ap, t_flag flag);
+int					print_va_dec(va_list *ap, t_flag flag);
 int					print_va_str(va_list *ap, t_flag flag);
 int					print_va_hex(va_list *ap, t_flag flag);
 int					print_va_udec(va_list *ap, t_flag flag);

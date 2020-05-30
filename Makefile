@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/22 04:54:56 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/28 19:11:23 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/05/30 22:00:12 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIB_DIR =	srcs/libft/
 
 SRC =		ft_printf.c \
 			print_va_char.c \
-			print_va_nbr.c \
+			print_va_dec.c \
 			print_va_str.c \
 			print_va_hex.c \
 			print_va_udec.c \

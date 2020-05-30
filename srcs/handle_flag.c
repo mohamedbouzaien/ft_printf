@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 19:07:40 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/30 22:01:28 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 {
 	print_va_fncts[0] = print_va_str;
 	print_va_fncts[1] = print_va_char;
-	print_va_fncts[2] = print_va_nbr;
+	print_va_fncts[2] = print_va_dec;
 	print_va_fncts[3] = print_va_hex;
 	print_va_fncts[4] = print_va_hex;
 	print_va_fncts[5] = print_va_hex;
 	print_va_fncts[6] = print_va_udec;
-	print_va_fncts[7] = print_va_nbr;
+	print_va_fncts[7] = print_va_dec;
 	print_va_fncts[8] = print_va_percent;
 }
 

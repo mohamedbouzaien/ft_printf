@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 15:43:33 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 14:14:12 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/30 22:12:39 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,13 @@ int		ft_printf(const char *format, ...)
 		if (format[pos] == '%')
 		{
 			lastpos = pos;
-			handlersize = handle_flag(format, &pos, &ap);
-			if (handlersize == -1)
+			if ((handlersize = handle_flag(format, &pos, &ap)) == -1)
 				return (-1);
 			else
 				flagssize += handlersize - (pos - lastpos) - 1;
 		}
 		else if (format[pos] != '%')
-		{
 			ft_putchar_fd(format[pos], 1);
-		}
 		pos++;
 	}
 	return (pos + flagssize);
