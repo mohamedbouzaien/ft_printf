@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 02:26:44 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/28 20:16:20 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/30 17:22:58 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 static char		*init_str_flag_p(char **str)
 {
 	char	*hex;
+	char	*pointerclean;
 
 	hex = ft_strdup("0x");
+	pointerclean = hex;
 	hex = ft_strnjoin(hex, *str, ft_strlen(*str));
+	free(pointerclean);
 	free(*str);
 	return (hex);
 }
@@ -41,5 +44,6 @@ int				print_va_hex(va_list *ap, t_flag flag)
 	if (flag.widthenabled && flag.width - len > 0)
 		len = format_width_dec(flag, &str, len);
 	ft_putstr_fd(str, 1);
+	free(str);
 	return (len);
 }
