@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 17:37:37 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/29 15:18:33 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/05/31 23:20:33 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		format_width_dec(t_flag flag, char **str, int len)
 	{
 		flag.precisionenabled = 1;
 		flag.precision = flag.width;
-		if (*str[0] == '-')
+		if (*str[0] == '-' || *str[0] == '+' || *str[0] == ' ')
 			flag.precision--;
 		format_precision(str, flag);
 	}

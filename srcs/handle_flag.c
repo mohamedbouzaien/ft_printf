@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/30 22:01:28 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/02 17:16:16 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		find(char *tab, char element)
+static	int		findIndex(char *tab, char element)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		find(char *tab, char element)
 	return (-1);
 }
 
-void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
+static	void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 {
 	print_va_fncts[0] = print_va_str;
 	print_va_fncts[1] = print_va_char;
@@ -39,7 +39,45 @@ void	fill_va_fncts(int (*print_va_fncts[9])(va_list *, t_flag flag))
 	print_va_fncts[8] = print_va_percent;
 }
 
-int		handle_flag(const char *format, int *pos, va_list *ap)
+static	void	init_t_flag(t_flag *flag)
+{
+	flag->justify = 0;
+	flag->width = 0;
+	flag->precision = 0;
+	flag->modifier = 0;
+	flag->type = 0;
+	flag->widthenabled = 0;
+	flag->precisionenabled = 0;
+	flag->zeroenabled = 0;
+	flag->signenabled = 0;
+	flag->spaceenabled = 0;
+}
+
+static	t_flag	fill_flag_data(const char *str, int *pos, va_list *ap)
+{
+	t_flag		new;
+
+	init_t_flag(&new);
+	handle_params(&new, str, pos);
+	if (str[*pos] == '*')
+	{
+		new.width = fill_int_star(&(new.widthenabled), ap, pos);
+		if (new.width < 0 && new.justify == 0)
+			new.justify = 1;
+	}
+	else
+		new.width = capture_int_str(str, pos, &(new.widthenabled));
+	if (str[*pos] == '.')
+		handle_precision(str, pos, ap, &new);
+	handle_modifiers(&new, str, pos);
+	if (ft_isalpha(str[*pos]) || str[*pos] == '%')
+		new.type = str[*pos];
+	else
+		new.type = 0;
+	return (new);
+}
+
+int				handle_flag(const char *format, int *pos, va_list *ap)
 {
 	int		tmp;
 	int		(*print_va_fncts[9])(va_list *, t_flag flag);
@@ -49,7 +87,7 @@ int		handle_flag(const char *format, int *pos, va_list *ap)
 	fill_va_fncts(print_va_fncts);
 	tab = (char[10]) {'s', 'c', 'd', 'p', 'x', 'X', 'u', 'i', '%', 0};
 	flag = fill_flag_data(format, pos, ap);
-	tmp = find(tab, format[*pos]);
+	tmp = findIndex(tab, format[*pos]);
 	if (tmp != -1)
 		return ((*print_va_fncts[tmp])(ap, flag));
 	else

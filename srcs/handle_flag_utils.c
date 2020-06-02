@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_flag_data.c                                   :+:      :+:    :+:   */
+/*   handle_flag_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 04:23:55 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/30 22:36:10 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/02 17:05:21 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static	int		capture_int_str(const char *str, int *pos, size_t *enablepart)
+int		capture_int_str(const char *str, int *pos, size_t *enablepart)
 {
 	int		i;
 	int		num;
@@ -35,7 +35,7 @@ static	int		capture_int_str(const char *str, int *pos, size_t *enablepart)
 	return (num);
 }
 
-static	int		fill_int_star(size_t *enablepart, va_list *ap, int *pos)
+int		fill_int_star(size_t *enablepart, va_list *ap, int *pos)
 {
 	int		n;
 
@@ -45,7 +45,7 @@ static	int		fill_int_star(size_t *enablepart, va_list *ap, int *pos)
 	return (n);
 }
 
-static	void	handle_precision(const char *str, int *pos, va_list *ap, \
+void	handle_precision(const char *str, int *pos, va_list *ap, \
 				t_flag *flag)
 {
 	(*pos)++;
@@ -59,9 +59,9 @@ static	void	handle_precision(const char *str, int *pos, va_list *ap, \
 	}
 }
 
-static	void	handle_params(t_flag *flag, const char *str, int *pos)
+void	handle_params(t_flag *flag, const char *str, int *pos)
 {
-	const char	*params = "-0";
+	const char	*params = "-0 +";
 
 	while (str[(*pos)++] && ft_strchr(params, str[*pos]))
 	{
@@ -69,6 +69,10 @@ static	void	handle_params(t_flag *flag, const char *str, int *pos)
 			flag->justify = 1;
 		else if (str[*pos] == '0' && flag->justify != 1)
 			flag->zeroenabled = 1;
+		else if (str[*pos] == ' ')
+			flag->spaceenabled = 1;
+		else if (str[*pos] == '+')
+			flag->signenabled = 1;
 		else
 		{
 			(*pos)++;
@@ -77,25 +81,13 @@ static	void	handle_params(t_flag *flag, const char *str, int *pos)
 	}
 }
 
-t_flag			fill_flag_data(const char *str, int *pos, va_list *ap)
+void	handle_modifiers(t_flag *flag, const char *str, int *pos)
 {
-	t_flag		new;
+	const char	*modifiers = "hl";
 
-	init_t_flag(&new);
-	handle_params(&new, str, pos);
-	if (str[*pos] == '*')
+	while (str[*pos] && ft_strchr(modifiers, str[*pos]))
 	{
-		new.width = fill_int_star(&(new.widthenabled), ap, pos);
-		if (new.width < 0 && new.justify == 0)
-			new.justify = 1;
+		flag->modifier += str[*pos];
+		(*pos)++;
 	}
-	else
-		new.width = capture_int_str(str, pos, &(new.widthenabled));
-	if (str[*pos] == '.')
-		handle_precision(str, pos, ap, &new);
-	if (ft_isalpha(str[*pos]) || str[*pos] == '%')
-		new.type = str[*pos];
-	else
-		new.type = 0;
-	return (new);
 }

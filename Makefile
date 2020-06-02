@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/22 04:54:56 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/30 22:00:12 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/06/02 17:05:56 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,8 @@ SRC =		ft_printf.c \
 			print_va_hex.c \
 			print_va_udec.c \
 			print_va_percent.c \
-			init_t_flag.c \
-			fill_flag_data.c \
 			handle_flag.c \
+			handle_flag_utils.c \
 			format_precision.c \
 			format_width_dec.c \
 			format_width_char.c \
