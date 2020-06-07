@@ -6,7 +6,7 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 15:10:22 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/05/12 19:12:27 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/06/07 19:36:06 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,22 +88,22 @@ OBJ_B =	${SRC_B:.c=.o}
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) $(OPTION) $(SRC)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(CC) $(FLAGS) $(OPTION) $(SRC)
+	@ar rcs $(NAME) $(OBJ)
+	@ranlib $(NAME)
 	@echo "libft est la\n"
 
 bonus: $(OBJ) $(OBJ_B)
-	ar rcs $(NAME) $(OBJ) $(OBJ_B)
+	@ar rcs $(NAME) $(OBJ) $(OBJ_B)
 	@echo "libft bonus est la\n"	
 
 clean:
-	/bin/rm -f $(OBJ) $(OBJ_B)
-	@echo "Les fichier .o sont efface"
+	@/bin/rm -f $(OBJ) $(OBJ_B)
+	@echo "object files deleted"
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	@echo "$(NAME) ainsi que les fichiers .o sont efface"
+	@/bin/rm -f $(NAME)
+	@echo "$(NAME) deleted"
 
 re: fclean all
 

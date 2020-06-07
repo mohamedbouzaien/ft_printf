@@ -6,14 +6,14 @@
 #    By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/22 04:54:56 by mbouzaie          #+#    #+#              #
-#    Updated: 2020/06/02 17:05:56 by mbouzaie         ###   ########.fr        #
+#    Updated: 2020/06/07 19:34:20 by mbouzaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		libftprintf.a
 LIBFT_A =	libft.a
 
-COMP =		gcc -Wall -Werror -Wextra -g $(PRINTF_H) $(LIBFT_H) -c -o
+COMP =		gcc -Wall -Werror -Wextra $(PRINTF_H) $(LIBFT_H) -c -o
 
 PRINTF_H =	-I includes/
 LIBFT_H =	-I $(LIB_DIR)/includes/
