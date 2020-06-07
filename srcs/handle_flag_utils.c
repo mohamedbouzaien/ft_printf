@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 04:23:55 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/06/02 17:05:21 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/07 19:55:31 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		capture_int_str(const char *str, int *pos, size_t *enablepart)
+int		capture_int_str(const char *str, int *pos, size_t *enable)
 {
 	int		i;
 	int		num;
@@ -24,7 +24,7 @@ int		capture_int_str(const char *str, int *pos, size_t *enablepart)
 		i++;
 	if (ft_isdigit(str[*pos + i]))
 	{
-		*enablepart = 1;
+		*enable = 1;
 		while (ft_isdigit(str[*pos + i]))
 			i++;
 		numinstr = ft_substr(str, *pos, i);

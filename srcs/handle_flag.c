@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:48:54 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/06/02 17:16:16 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/07 19:54:56 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static	int		findIndex(char *tab, char element)
+static	int		findindex(char *tab, char element)
 {
 	int i;
 
@@ -87,7 +87,7 @@ int				handle_flag(const char *format, int *pos, va_list *ap)
 	fill_va_fncts(print_va_fncts);
 	tab = (char[10]) {'s', 'c', 'd', 'p', 'x', 'X', 'u', 'i', '%', 0};
 	flag = fill_flag_data(format, pos, ap);
-	tmp = findIndex(tab, format[*pos]);
+	tmp = findindex(tab, format[*pos]);
 	if (tmp != -1)
 		return ((*print_va_fncts[tmp])(ap, flag));
 	else
