@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 02:26:44 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/06/05 03:23:26 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/07 17:22:41 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static	intmax_t	get_arg(va_list *ap, t_flag flag)
 {
-	if (flag.modifier == 0)
+	if (flag.type == 'p')
+		return (va_arg(*ap, unsigned long long));
+	else if (flag.modifier == 0)
 		return (va_arg(*ap, unsigned int));
 	else if (flag.modifier == 'h')
 		return ((unsigned short)va_arg(*ap, int));

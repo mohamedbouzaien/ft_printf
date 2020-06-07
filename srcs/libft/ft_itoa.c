@@ -6,13 +6,13 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 20:27:13 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/12 18:52:30 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/07 17:36:41 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_intlength(int n)
+int		ft_intlength(intmax_t n)
 {
 	int len;
 
@@ -34,13 +34,11 @@ int		ft_intlength(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(intmax_t n)
 {
 	int		i;
 	char	*ito;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (!(ito = (char *)malloc(sizeof(char) * (ft_intlength(n) + 1))))

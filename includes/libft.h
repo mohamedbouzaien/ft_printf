@@ -6,7 +6,7 @@
 /*   By: mbouzaie <mbouzaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:55:29 by mbouzaie          #+#    #+#             */
-/*   Updated: 2020/05/30 22:39:11 by mbouzaie         ###   ########.fr       */
+/*   Updated: 2020/06/07 17:37:42 by mbouzaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s, char const *set);
 char				**ft_split(char const *s, char c);
-char				*ft_itoa(int n);
+char				*ft_itoa(intmax_t n);
 int					ft_intlen(int m);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
